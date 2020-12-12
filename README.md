@@ -13,3 +13,25 @@
 Creates Lambda IAM permissions.
 
 Simple module to add permissions to a lambda function. Common use case is to add lambda:InvokeFunction permission for API Gateway or SNS topic.
+
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.13.2 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| action | Action to be allowed | `string` | `"lambda:InvokeFunction"` | no |
+| function\_name | Lambda function name | `any` | n/a | yes |
+| principal | Principal to be granted access | `string` | `"apigateway.amazonaws.com"` | no |
+| source\_arn | Source ARN to be granted access | `string` | n/a | yes |
+| statement\_id | Statement id / name | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| aws\_lambda\_permission | Root object |
